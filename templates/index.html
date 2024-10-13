@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fake News Detector</h1>
+            <p>Enter a news article to check if it's real or fake</p>
+        </header>
+        <main>
+            <div class="input-container">
+                <textarea id="news-text" placeholder="Paste your news article here..."></textarea>
+                <button id="predict-btn">Predict</button>
+            </div>
+            <div id="result" class="hidden">
+                <h2>Prediction Result</h2>
+                <div class="result-container">
+                    <div class="result-card">
+                        <h3 id="prediction-text"></h3>
+                        <div class="confidence-meter">
+                            <div id="confidence-bar"></div>
+                        </div>
+                        <p id="confidence-text"></p>
+                    </div>
+                    <div class="result-explanation">
+                        <h4>What does this mean?</h4>
+                        <p id="explanation-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="stats" class="hidden">
+                <h2>Your Statistics</h2>
+                <div class="stats-container">
+                    <canvas id="stats-chart"></canvas>
+                </div>
+            </div>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing...</p>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Fake News Detector. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
